@@ -1,10 +1,10 @@
 const path = require("path");
-// const webpack = require("webpack");
+const webpack = require("webpack");
 
 module.exports = {
     entry: ["./src/index"],
     devtool: 'source-map',
-    // plugins: [new webpack.HotModuleReplacementPlugin()],//hot-loader do not work with REDUX
+    plugins: [new webpack.HotModuleReplacementPlugin()],//hot-loader do not work with REDUX
     module: {
         rules: [
             {
@@ -17,8 +17,21 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"]
+                test: /\.(css|scss)$/,
+                use: ["style-loader", "css-loader", "sass-loader"]
+            },
+            {
+                test: /\.svg$/,
+                loader: 'svg-inline-loader'
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {}
+                    }
+                ]
             }
         ]
     },
@@ -30,7 +43,7 @@ module.exports = {
     },
     devServer: {
         port: 3000,
-        // hotOnly: true,//hot-loader do not work with REDUX
+        hotOnly: true,//hot-loader do not work with REDUX
         contentBase: [path.join(__dirname, "public/")],
         watchContentBase: true,
         compress: true,

@@ -4,24 +4,31 @@ import {Provider} from 'react-redux';
 // import {createStore} from 'redux';
 // import {reducerCounter, stateDefaultCounter} from './reducers';
 // import configureStore from './configureStore';
-import {defaultStore} from './reducers';
-import Counter from './Counter.jsx';
-import './App.css';
+import {defaultStore} from './redux/reducers';
+import Header from './Header';
+import Sidebar from './Sidebar';
+// import Signin from './Signin';
+import Container from './Container';
+// import Counter from './Counter';
+import '../css/App.css';
 
 // const store = createStore(reducerCounter);
 // const store = configureStore(reducerCounter, stateDefaultCounter);
 
 class App extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            active: true
+        }
+    }
     render(){
         return(//<Provider> should always include only ONE child
             <Provider store={defaultStore}>
                 <div>
-                    <div className="App">
-                        <h1>Hello123, React WebPack JSX</h1>
-                    </div>
-                    <div className="Counter">
-                        <Counter/>
-                    </div>
+                    <Header/>
+                    <Sidebar/>
+                    <Container/>
                 </div>
             </Provider>
         )
