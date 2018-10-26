@@ -12,7 +12,7 @@
     z-index: 1040;
     opacity: 0;
     /* animate the transition */
-    transition: all 0.3s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 /* display .overlay when it has the .active class */
 .overlay.active {

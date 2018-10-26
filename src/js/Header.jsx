@@ -1,15 +1,22 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {mapStateToProps} from './redux/reducers';
 
-export default class Header extends React.Component{
+class Header extends React.Component{
     constructor(props){
         super(props);
     }
+
+    showHideSidebar = () => {
+        // console.info('dispatch ...');
+        this.props.dispatch({type: 'SHOW_HIDE_SIDEBAR'});
+    };
 
     render(){
         return (
             <div id="Header">
                 <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-                    <button type="button" className="btn btn-info" onClick={this.props.showHideSidebar}>
+                    <button type="button" className="btn btn-info" onClick={this.showHideSidebar}>
                         S
                     </button>
                     <a className="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
@@ -25,3 +32,5 @@ export default class Header extends React.Component{
         );
     }
 }
+
+export default connect(mapStateToProps)(Header);//binding component to store

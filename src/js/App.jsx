@@ -24,9 +24,10 @@ class App extends Component{
     }
 
     hideSidebar = () => {
-        this.setState({
-            sidebarActive: false
-        });
+        if(this.setState.sidebarActive)
+            this.setState({
+                sidebarActive: false
+            });
     };
 
     showHideSidebar = () => {
@@ -39,14 +40,16 @@ class App extends Component{
         return(//<Provider> should always include only ONE child
             <Provider store={defaultStore}>
                 <div id="App">
-                    <Header
+                    {/*<Header
                         showHideSidebar={this.showHideSidebar}
                     />
                     <Sidebar
                         showHideSidebar={this.showHideSidebar}
                         hideSidebar = {this.hideSidebar}
                         sidebarActive={this.state.sidebarActive}
-                    />
+                    />*/}
+                    <Header/>
+                    <Sidebar/>
                     <Container/>
                 </div>
             </Provider>

@@ -1,12 +1,15 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {mapStateToProps} from './redux/reducers';
 import '../css/Sidebar.css';
 
-export default class Sidebar extends React.Component{
+class Sidebar extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             active: true
-        }
+        };
+        console.info('this.props', this.props);
     }
 
     // state = {
@@ -22,9 +25,10 @@ export default class Sidebar extends React.Component{
     };
 
     hide = () => {
-        this.setState({
-            active: false
-        });
+        // this.setState({
+        //     active: false
+        // });
+        this.props.dispatch({type: 'HIDE_SIDEBAR'});
     };
 
     showHide = () => {
@@ -34,7 +38,7 @@ export default class Sidebar extends React.Component{
     render(){
         return (
             <div id="Sidebar">
-                <div className={this.props.sidebarActive?'overlay active':'overlay'} onClick={this.props.hideSidebar}></div>;
+                {/*<div className={this.props.sidebarActive?'overlay active':'overlay'} onClick={this.props.hideSidebar}></div>;*/}
                 <nav control-id="sidebar" className={this.props.sidebarActive?'sidebar active':'sidebar'}>
                     <button type="button" className="btn btn-info" style={{marginTop: '0.375rem'}} onClick={this.props.showHideSidebar}>
                         S
@@ -190,3 +194,5 @@ export default class Sidebar extends React.Component{
         );
     }
 }
+
+export default connect(mapStateToProps)(Sidebar);//binding component to store
