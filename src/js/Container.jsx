@@ -7,7 +7,7 @@ export default class Container extends React.Component{
         this.state = {
             active: true,
             display: 'block',
-            component: null
+            component: <Promochart/>
         };
     }
 
@@ -20,7 +20,7 @@ export default class Container extends React.Component{
             return null;
         else
             return (
-                <div style={{display: this.state.display}}>
+                <div style={{display: this.state.display, paddingTop: '48px'}}>
                     {this.state.component}
                 </div>
             );

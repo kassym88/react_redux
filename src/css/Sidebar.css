@@ -1,11 +1,23 @@
-body {
-    font-size: .875rem;
-}
 
-.feather {
-    width: 16px;
-    height: 16px;
-    vertical-align: text-bottom;
+
+.overlay {
+    display: none;
+    position: fixed;
+    /* full screen */
+    width: 100vw;
+    height: 100vh;
+    /* transparent black */
+    background: rgba(0, 0, 0, 0.7);
+    /* middle layer, i.e. appears below the sidebar */
+    z-index: 1040;
+    opacity: 0;
+    /* animate the transition */
+    transition: all 0.3s ease-in-out;
+}
+/* display .overlay when it has the .active class */
+.overlay.active {
+    display: block;
+    opacity: 1;
 }
 
 /*
@@ -16,10 +28,19 @@ body {
     position: fixed;
     top: 0;
     bottom: 0;
-    left: 0;
-    z-index: 100; /* Behind the navbar */
-    padding: 48px 0 0; /* Height of navbar */
+    left: -16.666667%;
+    max-width: 16.666667%;
+    z-index: 1050; /* Behind the navbar */
+    /*padding: 48px 0 0; !* Height of navbar *!*/
+    /*margin-top: 48px;*/
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    background-color: #f8f9fa;
+    transition: left 0.3s ease-in-out;
+}
+
+.sidebar.active{
+    left: 0;
+    transition: left 0.3s ease-in-out;
 }
 
 .sidebar-sticky {

@@ -19,15 +19,34 @@ class App extends Component{
     constructor(props){
         super(props);
         this.state = {
-            active: true
+            sidebarActive: false
         }
     }
+
+    hideSidebar = () => {
+        this.setState({
+            sidebarActive: false
+        });
+    };
+
+    showHideSidebar = () => {
+        this.setState({
+            sidebarActive: !this.state.sidebarActive
+        });
+    };
+
     render(){
         return(//<Provider> should always include only ONE child
             <Provider store={defaultStore}>
-                <div>
-                    <Header/>
-                    <Sidebar/>
+                <div id="App">
+                    <Header
+                        showHideSidebar={this.showHideSidebar}
+                    />
+                    <Sidebar
+                        showHideSidebar={this.showHideSidebar}
+                        hideSidebar = {this.hideSidebar}
+                        sidebarActive={this.state.sidebarActive}
+                    />
                     <Container/>
                 </div>
             </Provider>
