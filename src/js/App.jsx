@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 // import {hot} from 'react-hot-loader';//hot-loader do not work with REDUX
-import { BrowserRouter as Router, HashRouter} from "react-router-dom";
+import { HashRouter} from "react-router-dom";
 import {Provider} from 'react-redux';
 // import {createStore} from 'redux';
 // import {reducerCounter, stateDefaultCounter} from './reducers';
