@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 // import {hot} from 'react-hot-loader';//hot-loader do not work with REDUX
+import { BrowserRouter as Router, HashRouter} from "react-router-dom";
 import {Provider} from 'react-redux';
 // import {createStore} from 'redux';
 // import {reducerCounter, stateDefaultCounter} from './reducers';
@@ -8,7 +9,7 @@ import {defaultStore} from './redux/reducers';
 import Header from './Header';
 import Sidebar from './Sidebar';
 // import Signin from './Signin';
-import Container from './Container';
+import Layout from './Layout';
 // import Counter from './Counter';
 import '../css/App.css';
 
@@ -24,9 +25,10 @@ class App extends Component{
     }
 
     hideSidebar = () => {
-        this.setState({
-            sidebarActive: false
-        });
+        if(this.state.sidebarActive)
+            this.setState({
+                sidebarActive: false
+            });
     };
 
     showHideSidebar = () => {
@@ -37,19 +39,23 @@ class App extends Component{
 
     render(){
         return(//<Provider> should always include only ONE child
-            <Provider store={defaultStore}>
-                <div id="App">
-                    <Header
-                        showHideSidebar={this.showHideSidebar}
-                    />
-                    <Sidebar
-                        showHideSidebar={this.showHideSidebar}
-                        hideSidebar = {this.hideSidebar}
-                        sidebarActive={this.state.sidebarActive}
-                    />
-                    <Container/>
-                </div>
-            </Provider>
+            <HashRouter hashType="noslash">
+                <Provider store={defaultStore}>
+                    <div id="App">
+                        <Header
+                            showHideSidebar={this.showHideSidebar}
+                        />
+                        <Sidebar
+                            showHideSidebar={this.showHideSidebar}
+                            hideSidebar = {this.hideSidebar}
+                            sidebarActive={this.state.sidebarActive}
+                        />
+                        <Layout
+                            hideSidebar = {this.hideSidebar}
+                        />
+                    </div>
+                </Provider>
+            </HashRouter>
         )
     }
 }
