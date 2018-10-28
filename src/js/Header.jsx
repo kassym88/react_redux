@@ -1,23 +1,19 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {mapStateToProps} from './redux/reducers';
+// import {FaBars} from 'react-icons/fa';
+import {MdApps, MdDehaze, MdViewHeadline} from 'react-icons/md';
 
-class Header extends React.Component{
+export default class Header extends React.Component{
     constructor(props){
         super(props);
     }
-
-    showHideSidebar = () => {
-        // console.info('dispatch ...');
-        this.props.dispatch({type: 'SHOW_HIDE_SIDEBAR'});
-    };
 
     render(){
         return (
             <div id="Header">
                 <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-                    <button type="button" className="btn btn-info" onClick={this.showHideSidebar}>
-                        S
+                    <button className="btn btn-dark" onClick={this.props.showHideSidebar}>
+                        {/*<Octicon icon={ThreeBars} size="medium" ariaLabel="Menu" />*/}
+                        <MdDehaze size={25}/>
                     </button>
                     <a className="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
                     <input className="form-control form-control-dark w-100" type="text" placeholder="Search"
@@ -32,5 +28,3 @@ class Header extends React.Component{
         );
     }
 }
-
-export default connect(mapStateToProps)(Header);//binding component to store
