@@ -7,18 +7,11 @@ import '../css/Layout.css'
 export default class Layout extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            active: true,
-            display: 'block',
-            component: null
-        };
-    }
-
-    setContent(){
-        this.setState({component: <Promochart/>})
+        console.log('rendering layout constructor');
     }
 
     render(){
+        console.log('rendering layout');
         return (
             <div id="container" className="layout" onClick={this.props.hideSidebar}>
                 <Route exact path="/" component={Home} />

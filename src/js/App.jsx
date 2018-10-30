@@ -20,7 +20,20 @@ class App extends Component{
     constructor(props){
         super(props);
         this.state = {
-            sidebarActive: false
+            sidebarActive: false,
+            curNavItemIdx: 0,
+            navItems: [
+                {
+                    to: '/',
+                    active: true,
+                    label: 'Home'
+                },
+                {
+                    to: '/promochart',
+                    active: false,
+                    label: 'Promochart'
+                }
+            ]
         }
     }
 
@@ -37,6 +50,17 @@ class App extends Component{
         });
     };
 
+    selectNavItem = (navItemIdx) => {
+        if(this.state.curNavItemIdx !== navItemIdx)
+            this.setState(state => {
+                state.navItems[state.curNavItemIdx].active = false;
+                state.navItems[navItemIdx].active = true;
+                state.curNavItemIdx = navItemIdx;
+                return state;
+            });
+        this.hideSidebar();
+    };
+
     render(){
         return(//<Provider> should always include only ONE child
             <HashRouter hashType="noslash">
@@ -46,9 +70,10 @@ class App extends Component{
                             showHideSidebar={this.showHideSidebar}
                         />
                         <Sidebar
-                            showHideSidebar={this.showHideSidebar}
                             hideSidebar = {this.hideSidebar}
+                            selectNavItem={this.selectNavItem}
                             sidebarActive={this.state.sidebarActive}
+                            navItems={this.state.navItems}
                         />
                         <Layout
                             hideSidebar = {this.hideSidebar}
