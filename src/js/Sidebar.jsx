@@ -20,8 +20,8 @@ export default class Sidebar extends React.Component{
                                     to={e.to}
                                     activeNavItem={e.active}
                                     label={e.label}
-                                    navItemIdx={i}
-                                    selectNavItem={this.props.selectNavItem}
+                                    icon={e.icon}
+                                    hideSidebar={this.props.hideSidebar}
                                 />
                             )}
                         </ul>

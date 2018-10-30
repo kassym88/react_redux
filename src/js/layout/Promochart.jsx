@@ -1,6 +1,11 @@
 import React from 'react';
 
 export default class Promochart extends React.Component{
+    constructor(props){
+        super(props);
+        // console.log('Promochart constructor');
+    }
+
     render(){
         return (
             <main className="col-md-12 ml-sm-auto col-lg-12 px-4">

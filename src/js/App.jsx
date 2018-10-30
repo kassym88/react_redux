@@ -1,5 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 // import {hot} from 'react-hot-loader';//hot-loader do not work with REDUX
+import {
+    MdHome,
+    MdInsertChart
+}
+    from 'react-icons/md';
 import { HashRouter} from "react-router-dom";
 import {Provider} from 'react-redux';
 // import {createStore} from 'redux';
@@ -16,7 +21,7 @@ import '../css/App.css';
 // const store = createStore(reducerCounter);
 // const store = configureStore(reducerCounter, stateDefaultCounter);
 
-class App extends Component{
+class App extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -27,12 +32,14 @@ class App extends Component{
                 {
                     to: '/',
                     active: true,
-                    label: 'Home'
+                    label: 'Home',
+                    icon: <MdHome size={20}/>
                 },
                 {
                     to: '/promochart',
                     active: false,
-                    label: 'Promochart'
+                    label: 'Promochart',
+                    icon: <MdInsertChart size={20}/>
                 }
             ]
         };
@@ -86,7 +93,7 @@ class App extends Component{
                             showHideSidebar={this.showHideSidebar}
                         />
                         <Sidebar
-                            // hideSidebar = {this.hideSidebar}
+                            hideSidebar = {this.hideSidebar}
                             sidebarActive={this.state.sidebarActive}
                             navItems={this.state.navItems}
                         />
