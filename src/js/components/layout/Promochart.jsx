@@ -6,6 +6,22 @@ export default class Promochart extends React.Component{
         // console.log('Promochart constructor');
     }
 
+    componentDidMount(){
+        let script = document.createElement("script");
+
+        script.src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js";
+        script.async = false;
+
+        document.body.appendChild(script);
+
+        script = document.createElement("script");
+
+        script.src = "/js/mychart.js";
+        script.async = false;
+
+        document.body.appendChild(script);
+    }
+
     render(){
         return (
             <main className="col-md-12 ml-sm-auto col-lg-12 px-4">
@@ -174,8 +190,6 @@ export default class Promochart extends React.Component{
                         </tbody>
                     </table>
                 </div>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-                <script src="./js/mychart.js"></script>
             </main>
         )
     }

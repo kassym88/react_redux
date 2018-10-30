@@ -15,7 +15,8 @@ import '../css/App.css';
 //Layouts
 import Home from './components/layout/Home';
 import Promochart from './components/layout/Promochart';
-import Counter from './components/layout/Counter'
+import Counter from './components/layout/Counter';
+import Signin from './components/layout/Signin';
 
 // import {createStore} from 'redux';
 // import {reducerCounter, stateDefaultCounter} from './reducers';
@@ -52,6 +53,13 @@ class App extends React.Component{
                     label: 'Counter',
                     icon: <MdNfc size={20}/>,
                     component: Counter
+                },
+                {
+                    to: '/signin',
+                    active: false,
+                    label: 'Signin',
+                    icon: <MdNfc size={20}/>,
+                    component: Signin
                 }
             ]
         };
@@ -112,7 +120,7 @@ class App extends React.Component{
                         <Layout
                             hideSidebar = {this.hideSidebar}
                             setLocationCurPath = {this.setLocationCurPath}
-                            routes={this.state.navItems.map(e => {return {to: e.to, component: e.component}})}
+                            navItems={this.state.navItems}
                         />
                     </div>
                 </Provider>

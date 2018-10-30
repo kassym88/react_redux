@@ -1,9 +1,6 @@
 import React from 'react';
 import { Route, Switch,withRouter } from "react-router-dom";
 import Notfound from './layout/Notfound';
-import Home from './layout/Home';
-import Promochart from './layout/Promochart';
-import Counter from './layout/Counter'
 import '../../css/Layout.css'
 
 class Layout extends React.Component{
@@ -20,13 +17,10 @@ class Layout extends React.Component{
         return (
             <div id="layout" className="layout" onClick={this.props.hideSidebar}>
                 <Switch>
-                    {/*{this.props.routes.map((e, i) => {*/}
-                        {/*<Route exact path={e.to} component={e.component} />*/}
-                    {/*})}*/}
-                    <Route exact path="/" component={Home} />
-                    <Route path="/promochart" component={Promochart} />
-                    <Route path="/counter" component={Counter} />
-                    <Route component={Notfound}/>
+                    {[
+                        ...this.props.navItems.map((e, i) => <Route key={i} exact path={e.to} component={e.component}/>),
+                        <Route key={this.props.navItems.length} component={Notfound}/>
+                    ]}
                 </Switch>
             </div>
         );
