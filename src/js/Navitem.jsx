@@ -2,17 +2,11 @@ import React from 'react';
 import { Link, withRouter } from "react-router-dom";
 
 class Navitem extends React.Component{
-    // clickItem = () => {
-    //     this.props.selectNavItem(this.props.navItemIdx);
-    // };
-
     render(){
         return (
             <li className="nav-item" >
                 <Link replace={this.props.location.pathname === this.props.to}
                       to={this.props.to}
-                      // onClick={this.clickItem}
-                      onClick={this.props.selectNavItem.bind(null, this.props.navItemIdx)}
                       className={this.props.activeNavItem?'nav-link active':'nav-link'}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

@@ -1,22 +1,31 @@
 import React from 'react';
-import { Route } from "react-router-dom";
-import Home from './Home';
-import Promochart from './Promochart';
+import { Route, Switch,withRouter } from "react-router-dom";
+import Home from './layout/Home';
+import Promochart from './layout/Promochart';
+import Notfound from './layout/Notfound';
 import '../css/Layout.css'
 
-export default class Layout extends React.Component{
+class Layout extends React.Component{
     constructor(props){
         super(props);
-        console.log('rendering layout constructor');
+        this.props.setLocationCurPath(this.props.location.pathname);
+    }
+
+    componentDidUpdate(prevProps){
+        this.props.setLocationCurPath(this.props.location.pathname);
     }
 
     render(){
-        console.log('rendering layout');
         return (
-            <div id="container" className="layout" onClick={this.props.hideSidebar}>
-                <Route exact path="/" component={Home} />
-                <Route path="/promochart" component={Promochart} />
+            <div id="layout" className="layout" onClick={this.props.hideSidebar}>
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/promochart" component={Promochart} />
+                    <Route component={Notfound}/>
+                </Switch>
             </div>
         );
     }
 }
+
+export default withRouter(Layout);
