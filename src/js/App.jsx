@@ -1,22 +1,25 @@
 import React from 'react';
-// import {hot} from 'react-hot-loader';//hot-loader do not work with REDUX
 import {
     MdHome,
-    MdInsertChart
-}
-    from 'react-icons/md';
+    MdInsertChart,
+    MdNfc
+} from 'react-icons/md';
 import { HashRouter} from "react-router-dom";
 import {Provider} from 'react-redux';
+import {defaultStore} from './redux/reducers';
+//Main components
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import Layout from './components/Layout';
+import '../css/App.css';
+//Layouts
+import Home from './components/layout/Home';
+import Promochart from './components/layout/Promochart';
+import Counter from './components/layout/Counter'
+
 // import {createStore} from 'redux';
 // import {reducerCounter, stateDefaultCounter} from './reducers';
 // import configureStore from './configureStore';
-import {defaultStore} from './redux/reducers';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import Layout from './Layout';
-import '../css/App.css';
-// import Counter from './Counter';
-// import Signin from './Signin';
 
 // const store = createStore(reducerCounter);
 // const store = configureStore(reducerCounter, stateDefaultCounter);
@@ -33,13 +36,22 @@ class App extends React.Component{
                     to: '/',
                     active: true,
                     label: 'Home',
-                    icon: <MdHome size={20}/>
+                    icon: <MdHome size={20}/>,
+                    component: Home
                 },
                 {
                     to: '/promochart',
                     active: false,
                     label: 'Promochart',
-                    icon: <MdInsertChart size={20}/>
+                    icon: <MdInsertChart size={20}/>,
+                    component: Promochart
+                },
+                {
+                    to: '/counter',
+                    active: false,
+                    label: 'Counter',
+                    icon: <MdNfc size={20}/>,
+                    component: Counter
                 }
             ]
         };
@@ -100,6 +112,7 @@ class App extends React.Component{
                         <Layout
                             hideSidebar = {this.hideSidebar}
                             setLocationCurPath = {this.setLocationCurPath}
+                            routes={this.state.navItems.map(e => {return {to: e.to, component: e.component}})}
                         />
                     </div>
                 </Provider>
@@ -108,5 +121,4 @@ class App extends React.Component{
     }
 }
 
-// export default hot(module)(App);//hot-loader do not work with REDUX
 export default App;

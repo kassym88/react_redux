@@ -32,6 +32,7 @@
     top: 0;
     bottom: 0;
     left: -16.666667%;
+    /*width: 16.666667%;*/
     max-width: 16.666667%;
     z-index: 1050; /* Behind the navbar */
     /*padding: 48px 0 0; !* Height of navbar *!*/
@@ -73,7 +74,8 @@
 }
 
 .sidebar .nav-link.active {
-    color: #007bff;
+    color: #fff;
+    background-color: #333333;
 }
 
 .sidebar .nav-link:hover .feather,

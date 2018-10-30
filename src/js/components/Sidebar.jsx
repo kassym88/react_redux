@@ -1,6 +1,6 @@
 import React from 'react';
 import Navitem from './Navitem';
-import '../css/Sidebar.css';
+import '../../css/Sidebar.css';
 
 export default class Sidebar extends React.Component{
     constructor(props){

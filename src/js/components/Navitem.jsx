@@ -14,7 +14,7 @@ class Navitem extends React.Component{
                       className={this.props.activeNavItem?'nav-link active':'nav-link'}
                 >
                     {icon}
-                    {this.props.label}
+                    <span style={{marginLeft: '10px'}}>{this.props.label}</span>
                 </Link>
             </li>
         );
