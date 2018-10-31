@@ -8,7 +8,7 @@ class Counter extends React.Component {
         // this.state = { count: 0 };
         // this.increment = this.increment.bind(this);
         // this.decrement = this.decrement.bind(this);
-        // console.log('constructor Counter');
+        console.log('constructor Counter', this.props);
     }
 
     componentDidUpdate(prevProps){
@@ -33,14 +33,14 @@ class Counter extends React.Component {
         // this.setState({
         //     count: this.state.count + 1
         // });
-        this.props.dispatch({type: 'INCREMENT', abc: '123'});
+        this.props.dispatch({type: 'C_INCREMENT'});
     };
 
     decrement = () => {
         // this.setState({
         //     count: this.state.count - 1
         // });
-        this.props.dispatch({type: 'DECREMENT'});
+        this.props.dispatch({type: 'C_DECREMENT'});
     };
 
     render() {
@@ -57,4 +57,4 @@ class Counter extends React.Component {
     }
 }
 
-export default connect(mapStateToProps)(Counter);//binding component to store
+export default connect(mapStateToProps)(Counter);

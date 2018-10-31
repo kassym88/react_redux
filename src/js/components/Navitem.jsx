@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link, withRouter } from "react-router-dom";
+import connect from "react-redux/es/connect/connect";
+import {mapStateToProps} from "../redux/reducers";
 
 class Navitem extends React.Component{
+    hideSidebar = () => {
+        this.props.dispatch({type: 'HIDE_SIDEBAR'});
+    };
+
     render(){
         const icon = this.props.icon
             ? this.props.icon
@@ -10,7 +16,7 @@ class Navitem extends React.Component{
             <li className="nav-item" >
                 <Link replace={this.props.location.pathname === this.props.to}
                       to={this.props.to}
-                      onClick={this.props.hideSidebar}
+                      // onClick={this.hideSidebar}
                       className={this.props.activeNavItem?'nav-link active':'nav-link'}
                 >
                     {icon}
@@ -21,4 +27,4 @@ class Navitem extends React.Component{
     }
 }
 
-export default withRouter(Navitem);
+export default withRouter(connect(mapStateToProps)(Navitem));

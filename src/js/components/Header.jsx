@@ -8,6 +8,10 @@ class Header extends React.Component{
         super(props);
     }
 
+    showHideSidebar = () => {
+        this.props.dispatch({type: 'SHOW_HIDE_SIDEBAR'})
+    };
+
     render(){
         if(!this.props.showHeader)
             return null;
@@ -15,7 +19,7 @@ class Header extends React.Component{
             return (
                 <div id="Header">
                     <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-                        <button className="btn btn-dark" onClick={this.props.showHideSidebar}>
+                        <button className="btn btn-dark" onClick={this.showHideSidebar}>
                             <MdDehaze size={25}/>
                         </button>
                         <a className="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
@@ -32,4 +36,4 @@ class Header extends React.Component{
     }
 }
 
-export default connect(mapStateToProps)(Header);//binding component to store
+export default connect(mapStateToProps)(Header);

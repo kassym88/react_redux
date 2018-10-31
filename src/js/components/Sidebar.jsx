@@ -10,6 +10,7 @@ class Sidebar extends React.Component{
     }
 
     render(){
+        console.log('sidebar render', this.props);
         if(!this.props.showSidebar)
             return null;
         else
@@ -18,6 +19,7 @@ class Sidebar extends React.Component{
                     {/*<div className={this.props.sidebarActive?'overlay active':'overlay'} onClick={this.props.hideSidebar}></div>;*/}
                     <nav className={this.props.sidebarActive?'sidebar active':'sidebar'}>
                         <div className="sidebar-sticky">
+                            <span>{'sidebarActive '+this.props.sidebarActive}</span>
                             <ul className="nav flex-column">
                                 {this.props.navItems.map((e, i) =>
                                     <Navitem
@@ -26,7 +28,6 @@ class Sidebar extends React.Component{
                                         activeNavItem={e.active}
                                         label={e.label}
                                         icon={e.icon}
-                                        hideSidebar={this.props.hideSidebar}
                                     />
                                 )}
                             </ul>
@@ -36,4 +37,4 @@ class Sidebar extends React.Component{
             );
     }
 }
-export default connect(mapStateToProps)(Sidebar);//binding component to store
+export default connect(mapStateToProps)(Sidebar);

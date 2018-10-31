@@ -117,19 +117,19 @@ class App extends React.Component{
                 <Provider store={defaultStore}>
                     <div id="App">
                         <Header
-                            showHeader={this.state.showHeader}
-                            showHideSidebar={this.showHideSidebar}
+                            // showHeader={this.state.showHeader}
+                            // showHideSidebar={this.showHideSidebar}
                         />
                         <Sidebar
-                            showSidebar={this.state.showSidebar}
-                            hideSidebar = {this.hideSidebar}
-                            sidebarActive={this.state.sidebarActive}
-                            navItems={this.state.navItems}
+                            // showSidebar={this.state.showSidebar}
+                            // hideSidebar = {this.hideSidebar}
+                            // sidebarActive={this.state.sidebarActive}
+                            // navItems={this.state.navItems}
                         />
                         <Layout
-                            hideSidebar = {this.hideSidebar}
-                            setLocationCurPath = {this.setLocationCurPath}
-                            navItems={this.state.navItems}
+                            // hideSidebar = {this.hideSidebar}
+                            // setLocationCurPath = {this.setLocationCurPath}
+                            // navItems={this.state.navItems}
                         />
                     </div>
                 </Provider>
