@@ -43,6 +43,10 @@ class Counter extends React.Component {
         this.props.dispatch({type: 'C_DECREMENT'});
     };
 
+    componentDidUpdate(){
+        console.log('componentDidUpdate Counter', this.props);
+    }
+
     render() {
         return (
             <div>

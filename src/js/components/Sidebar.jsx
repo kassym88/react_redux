@@ -10,7 +10,6 @@ class Sidebar extends React.Component{
     }
 
     render(){
-        console.log('sidebar render', this.props);
         if(!this.props.showSidebar)
             return null;
         else

@@ -113,27 +113,27 @@ class App extends React.Component{
 
     render(){
         return(//<Provider> should always include only ONE child
-            <HashRouter hashType="noslash">
-                <Provider store={defaultStore}>
-                    <div id="App">
-                        <Header
-                            // showHeader={this.state.showHeader}
-                            // showHideSidebar={this.showHideSidebar}
-                        />
-                        <Sidebar
-                            // showSidebar={this.state.showSidebar}
-                            // hideSidebar = {this.hideSidebar}
-                            // sidebarActive={this.state.sidebarActive}
-                            // navItems={this.state.navItems}
-                        />
-                        <Layout
-                            // hideSidebar = {this.hideSidebar}
-                            // setLocationCurPath = {this.setLocationCurPath}
-                            // navItems={this.state.navItems}
-                        />
-                    </div>
-                </Provider>
-            </HashRouter>
+            <Provider store={defaultStore}>
+                <HashRouter hashType="noslash">
+                <div id="App">
+                    <Header
+                        // showHeader={this.state.showHeader}
+                        // showHideSidebar={this.showHideSidebar}
+                    />
+                    <Sidebar
+                        // showSidebar={this.state.showSidebar}
+                        // hideSidebar = {this.hideSidebar}
+                        // sidebarActive={this.state.sidebarActive}
+                        // navItems={this.state.navItems}
+                    />
+                    <Layout
+                        // hideSidebar = {this.hideSidebar}
+                        // setLocationCurPath = {this.setLocationCurPath}
+                        // navItems={this.state.navItems}
+                    />
+                </div>
+                </HashRouter>
+            </Provider>
         )
     }
 }

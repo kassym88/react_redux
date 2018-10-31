@@ -45,48 +45,51 @@ export const stateDefault = {
     ]
 };
 export const reducer = (state = stateDefault, action) => {
-    console.info(action);
+    // console.info(action);
     // console.info(state);
     switch (action.type) {
         case 'C_INCREMENT':
-            return Object.assign({}, state, {
+            return {
+                ...state,
                 count: state.count + 1
-            });
+            };
         case 'C_DECREMENT':
-            return Object.assign({}, state, {
+            return {
+                ...state,
                 count: state.count - 1
-            });
+            };
         case 'SHOW_HIDE_SIDEBAR':{
-            return Object.assign({}, state, {
+            return {
+                ...state,
                 sidebarActive: !state.sidebarActive
-            });
+            };
         }
         case 'HIDE_SIDEBAR':
-            return Object.assign({}, state, {
+            return {
+                ...state,
                 sidebarActive: false
-            });
+            };
         case 'SET_LOCATION_CUR_PATH':
             const newPath = action.data.newPath;
-            // const stateMod = JSON.parse(JSON.stringify(state));
-            const stateMod = Object.assign({}, state);
+            const stateModified = {...state};
             if(state.curLocationPath !== newPath){
-                console.log('new path', newPath);
+                stateModified.navItems = [...state.navItems];
                 const navItemIdx = state.navItems.findIndex(e => e.to === `/${newPath.split('/')[1]}`);
-                state.navItems[state.curNavItemIdx].active = false;
-                state.curLocationPath = newPath;
-                state.sidebarActive = false;
+                stateModified.navItems[stateModified.curNavItemIdx].active = false;
+                stateModified.curLocationPath = newPath;
+                stateModified.sidebarActive = false;
                 if(navItemIdx > -1){
-                    state.navItems[navItemIdx].active = true;
-                    state.curNavItemIdx = navItemIdx;
-                    state.showHeader = state.navItems[navItemIdx].to !== '/signin';
-                    state.showSidebar = state.navItems[navItemIdx].to !== '/signin';
+                    stateModified.navItems[navItemIdx].active = true;
+                    stateModified.curNavItemIdx = navItemIdx;
+                    stateModified.showHeader = state.navItems[navItemIdx].to !== '/signin';
+                    stateModified.showSidebar = state.navItems[navItemIdx].to !== '/signin';
                 }
                 else{
-                    state.showHeader = false;
-                    state.showSidebar = false;
+                    stateModified.showHeader = false;
+                    stateModified.showSidebar = false;
                 }
             }
-            return state;
+            return stateModified;
         default:
             return state;
     }
