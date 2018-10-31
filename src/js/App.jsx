@@ -5,31 +5,24 @@ import {
     MdNfc,
     MdInfoOutline
 } from 'react-icons/md';
-import { HashRouter} from "react-router-dom";
-import {Provider} from 'react-redux';
-import {defaultStore} from './redux/reducers';
 //Main components
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Layout from './components/Layout';
 import '../css/App.css';
 //Layouts
-// import Home from './components/layout/Home';
-// import Promochart from './components/layout/Promochart';
-// import Counter from './components/layout/Counter';
-// import Signin from './components/layout/Signin';
-
-// import {createStore} from 'redux';
-// import {reducerCounter, stateDefaultCounter} from './reducers';
-// import configureStore from './configureStore';
-
-// const store = createStore(reducerCounter);
-// const store = configureStore(reducerCounter, stateDefaultCounter);
+import Home from './components/layout/Home';
+import Promochart from './components/layout/Promochart';
+import Counter from './components/layout/Counter';
+import Signin from './components/layout/Signin';
+import connect from "react-redux/es/connect/connect";
+import {mapStateToProps} from "./redux/reducers";
 
 class App extends React.Component{
     constructor(props){
         super(props);
         // this.state = {
+        //     count: 22,
         //     showHeader: true,
         //     showSidebar: true,
         //     sidebarActive: false,
@@ -66,6 +59,47 @@ class App extends React.Component{
         //         }
         //     ]
         // };
+        this.props.dispatch({
+            type: 'INIT_STORE',
+            data: {
+                count: 22,
+                showHeader: true,
+                showSidebar: true,
+                sidebarActive: false,
+                curLocationPath: '',
+                curNavItemIdx: 0,
+                navItems: [
+                    {
+                        to: '/',
+                        active: true,
+                        label: 'Home',
+                        icon: <MdHome size={20}/>,
+                        component: Home
+                    },
+                    {
+                        to: '/promochart',
+                        active: false,
+                        label: 'Promochart',
+                        icon: <MdInsertChart size={20}/>,
+                        component: Promochart
+                    },
+                    {
+                        to: '/counter',
+                        active: false,
+                        label: 'Counter',
+                        icon: <MdNfc size={20}/>,
+                        component: Counter
+                    },
+                    {
+                        to: '/signin',
+                        active: false,
+                        label: 'Signin',
+                        icon: <MdInfoOutline size={20}/>,
+                        component: Signin
+                    }
+                ]
+            }
+        })
     }
 
     // hideSidebar = () => {
@@ -138,4 +172,5 @@ class App extends React.Component{
     }
 }
 
-export default App;
+// export default App;
+export default connect(mapStateToProps)(App);

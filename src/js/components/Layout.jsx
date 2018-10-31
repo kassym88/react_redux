@@ -4,7 +4,7 @@ import Notfound from './layout/Notfound';
 import connect from "react-redux/es/connect/connect";
 import {mapStateToProps} from "../redux/reducers";
 import '../../css/Layout.css'
-import Counter from "./layout/Counter";
+// import Counter from "./layout/Counter";
 
 class Layout extends React.Component{
     constructor(props){
@@ -27,13 +27,13 @@ class Layout extends React.Component{
     render(){
         return (
             <div id="Layout" className="layout" onClick={this.hideSidebar}>
-                {/*<Switch>*/}
-                    {/*{[*/}
-                        {/*...this.props.navItems.map((e, i) => <Route key={i} exact path={e.to} component={e.component}/>),*/}
-                        {/*<Route key={this.props.navItems.length} component={Notfound}/>*/}
-                    {/*]}*/}
-                {/*</Switch>*/}
-                <Counter/>
+                <Switch>
+                    {[
+                        ...this.props.navItems.map((e, i) => <Route key={i} exact path={e.to} component={e.component}/>),
+                        <Route key={this.props.navItems.length} component={Notfound}/>
+                    ]}
+                </Switch>
+                {/*<Counter/>*/}
             </div>
         );
     }

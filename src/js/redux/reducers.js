@@ -1,53 +1,14 @@
-import React from "react";
 import {createStore} from 'redux';
-import {MdHome, MdInfoOutline, MdInsertChart, MdNfc} from "react-icons/md";
-import Home from "../components/layout/Home";
-import Promochart from "../components/layout/Promochart";
-import Counter from "../components/layout/Counter";
-import Signin from "../components/layout/Signin";
 
 export const stateDefault = {
-    count: 20,
-    showHeader: true,
-    showSidebar: true,
-    sidebarActive: false,
-    curLocationPath: '',
-    curNavItemIdx: 0,
-    navItems: [
-        {
-            to: '/',
-            active: true,
-            label: 'Home',
-            icon: <MdHome size={20}/>,
-            component: Home
-        },
-        {
-            to: '/promochart',
-            active: false,
-            label: 'Promochart',
-            icon: <MdInsertChart size={20}/>,
-            component: Promochart
-        },
-        // {
-        //     to: '/counter',
-        //     active: false,
-        //     label: 'Counter',
-        //     icon: <MdNfc size={20}/>,
-        //     component: Counter
-        // },
-        {
-            to: '/signin',
-            active: false,
-            label: 'Signin',
-            icon: <MdInfoOutline size={20}/>,
-            component: Signin
-        }
-    ]
+    count: 20
 };
 export const reducer = (state = stateDefault, action) => {
     // console.info(action);
     // console.info(state);
     switch (action.type) {
+        case 'INIT_STORE':
+            return {...action.data, navItems: [...action.data.navItems]};
         case 'C_INCREMENT':
             return {
                 ...state,
