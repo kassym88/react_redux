@@ -3,24 +3,29 @@ import {connect} from 'react-redux';
 import {mapStateToProps} from '../../redux/reducers';
 
 class Counter extends React.Component {
-    /*constructor(props){
+    constructor(props){
         super(props);
-        this.state = { count: 0 };
-        this.increment = this.increment.bind(this);
-        this.decrement = this.decrement.bind(this);
+        // this.state = { count: 0 };
+        // this.increment = this.increment.bind(this);
+        // this.decrement = this.decrement.bind(this);
+        // console.log('constructor Counter');
     }
 
-    increment(){
-        this.setState({
-            count: this.state.count + 1
-        });
-    };
+    componentDidUpdate(prevProps){
+        // console.log('componentDidUpdate Counter');
+    }
 
-    decrement(){
-        this.setState({
-            count: this.state.count - 1
-        });
-    };*/
+    // increment(){
+    //     this.setState({
+    //         count: this.state.count + 1
+    //     });
+    // };
+    //
+    // decrement(){
+    //     this.setState({
+    //         count: this.state.count - 1
+    //     });
+    // };
 
     // state = { count: 0 };
 
@@ -28,7 +33,7 @@ class Counter extends React.Component {
         // this.setState({
         //     count: this.state.count + 1
         // });
-        this.props.dispatch({type: 'INCREMENT'});
+        this.props.dispatch({type: 'INCREMENT', abc: '123'});
     };
 
     decrement = () => {
@@ -43,9 +48,9 @@ class Counter extends React.Component {
             <div>
                 <h2>Counter</h2>
                 <div>
-                    <button onClick={this.decrement}>-</button>
-                    <span>{this.props.count}</span>
-                    <button onClick={this.increment}>+</button>
+                    <button className="btn-sm btn-primary" onClick={this.decrement}>-</button>
+                    <span style={{margin: '10px'}}>{this.props.count}</span>
+                    <button className="btn-sm btn-danger" onClick={this.increment}>+</button>
                 </div>
             </div>
         )

@@ -1,11 +1,11 @@
 import {createStore} from 'redux';
 
-export const stateDefaultCounter = {
+export const stateDefault = {
     count: 20,
-    sideBarActive: true
+    sidebarActive2: false
 };
-export const reducerCounter = (state = stateDefaultCounter, action) => {
-    // console.info(action);
+export const reducer = (state = stateDefault, action) => {
+    console.info(action);
     // console.info(state);
     switch (action.type) {
         case 'INCREMENT':
@@ -18,22 +18,22 @@ export const reducerCounter = (state = stateDefaultCounter, action) => {
             };
         case 'SHOW_HIDE_SIDEBAR':
             return {
-                sideBarActive: !state.sideBarActive
+                sidebarActive2: !state.sidebarActive2
             };
         case 'HIDE_SIDEBAR':
             return {
-                sideBarActive: false
+                sidebarActive2: false
             };
         default:
             return state;
     }
 };
 
-export const mapStateToProps = state => ({
-    count: state.count,
-    sideBarActive: state.sideBarActive
-});
+// export const mapStateToProps = state => ({
+//     count: state.count,
+//     sideBarActive2: state.sideBarActive2
+// });
 
-// export const mapStateToProps = state => (state);
+export const mapStateToProps = state => {return {...state}};
 
-export const defaultStore = createStore(reducerCounter);
+export const defaultStore = createStore(reducer);
