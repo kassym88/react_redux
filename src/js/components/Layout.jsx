@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route, Switch,withRouter } from "react-router-dom";
+import {connect} from 'react-redux';
 import Notfound from './layout/Notfound';
 import '../../css/Layout.css'
+import {mapStateToProps} from "../redux/reducers";
 
 class Layout extends React.Component{
     constructor(props){
@@ -11,6 +13,7 @@ class Layout extends React.Component{
 
     componentDidUpdate(prevProps){
         this.props.setLocationCurPath(this.props.location.pathname);
+        // console.log('componentDidUpdate Layout', this.props);
     }
 
     render(){
@@ -27,4 +30,5 @@ class Layout extends React.Component{
     }
 }
 
-export default withRouter(Layout);
+// export default withRouter(Layout);
+export default withRouter(connect(mapStateToProps)(Layout));

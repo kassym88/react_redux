@@ -9,19 +9,19 @@ export const reducer = (state = stateDefault, action) => {
     // console.info(state);
     switch (action.type) {
         case 'INCREMENT':
-            return {
+            return {...state,
                 count: state.count + 1
             };
         case 'DECREMENT':
-            return {
+            return {...state,
                 count: state.count - 1
             };
         case 'SHOW_HIDE_SIDEBAR':
-            return {
+            return {...state,
                 sidebarActive2: !state.sidebarActive2
             };
         case 'HIDE_SIDEBAR':
-            return {
+            return {...state,
                 sidebarActive2: false
             };
         default:

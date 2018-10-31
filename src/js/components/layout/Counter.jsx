@@ -12,7 +12,7 @@ class Counter extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        // console.log('componentDidUpdate Counter');
+        // console.log('componentDidUpdate Counter', this.props);
     }
 
     // increment(){
