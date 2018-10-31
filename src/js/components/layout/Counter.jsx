@@ -5,9 +5,6 @@ import {mapStateToProps} from '../../redux/reducers';
 class Counter extends React.Component {
     constructor(props){
         super(props);
-        // this.state = { count: 0 };
-        // this.increment = this.increment.bind(this);
-        // this.decrement = this.decrement.bind(this);
         console.log('constructor Counter', this.props);
     }
 
@@ -15,31 +12,11 @@ class Counter extends React.Component {
         // console.log('componentDidUpdate Counter');
     }
 
-    // increment(){
-    //     this.setState({
-    //         count: this.state.count + 1
-    //     });
-    // };
-    //
-    // decrement(){
-    //     this.setState({
-    //         count: this.state.count - 1
-    //     });
-    // };
-
-    // state = { count: 0 };
-
     increment = () => {
-        // this.setState({
-        //     count: this.state.count + 1
-        // });
         this.props.dispatch({type: 'C_INCREMENT'});
     };
 
     decrement = () => {
-        // this.setState({
-        //     count: this.state.count - 1
-        // });
         this.props.dispatch({type: 'C_DECREMENT'});
     };
 

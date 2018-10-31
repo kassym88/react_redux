@@ -28,13 +28,13 @@ export const stateDefault = {
             icon: <MdInsertChart size={20}/>,
             component: Promochart
         },
-        {
-            to: '/counter',
-            active: false,
-            label: 'Counter',
-            icon: <MdNfc size={20}/>,
-            component: Counter
-        },
+        // {
+        //     to: '/counter',
+        //     active: false,
+        //     label: 'Counter',
+        //     icon: <MdNfc size={20}/>,
+        //     component: Counter
+        // },
         {
             to: '/signin',
             active: false,
@@ -95,6 +95,6 @@ export const reducer = (state = stateDefault, action) => {
     }
 };
 
-export const mapStateToProps = state => {return {...state}};
+export const mapStateToProps = state => {return {...state, navItems: [...state.navItems]}};
 
 export const defaultStore = createStore(reducer);
