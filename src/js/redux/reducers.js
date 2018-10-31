@@ -2,12 +2,7 @@ import {createStore} from 'redux';
 
 export const stateDefault = {
     count: 20,
-    sidebarActive2: false,
-    showHeader: true,
-    showSidebar: true,
-    sidebarActive: false,
-    curLocationPath: '',
-    curNavItemIdx: 0
+    sidebarActive2: false
 };
 export const reducer = (state = stateDefault, action) => {
     // console.info(action);
@@ -34,10 +29,6 @@ export const reducer = (state = stateDefault, action) => {
     }
 };
 
-// export const mapStateToProps = state => ({
-//     count: state.count,
-//     sideBarActive2: state.sideBarActive2
-// });
 
 export const mapStateToProps = state => {return {...state}};
 

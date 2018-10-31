@@ -1,3 +1,4 @@
+//Libraries
 import React from 'react';
 import {
     MdHome,
@@ -101,7 +102,7 @@ class App extends React.Component{
     };
 
     componentDidUpdate(prevProps){
-
+        // console.log('componentDidUpdate App', this.props);
     }
 
     render(){
