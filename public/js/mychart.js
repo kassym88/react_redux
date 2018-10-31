@@ -1,5 +1,4 @@
 var ctx = document.getElementById("myChart");
-console.info('ctx', ctx);
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {

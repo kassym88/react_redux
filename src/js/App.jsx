@@ -2,7 +2,8 @@ import React from 'react';
 import {
     MdHome,
     MdInsertChart,
-    MdNfc
+    MdNfc,
+    MdInfoOutline
 } from 'react-icons/md';
 import { HashRouter} from "react-router-dom";
 import {Provider} from 'react-redux';
@@ -29,6 +30,8 @@ class App extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            showHeader: true,
+            showSidebar: true,
             sidebarActive: false,
             curLocationPath: '',
             curNavItemIdx: 0,
@@ -58,7 +61,7 @@ class App extends React.Component{
                     to: '/signin',
                     active: false,
                     label: 'Signin',
-                    icon: <MdNfc size={20}/>,
+                    icon: <MdInfoOutline size={20}/>,
                     component: Signin
                 }
             ]
@@ -88,6 +91,8 @@ class App extends React.Component{
                     state.curNavItemIdx = navItemIdx;
                     state.curLocationPath = newPath;
                     state.sidebarActive = false;
+                    state.showHeader = this.state.navItems[navItemIdx].to !== '/signin';
+                    state.showSidebar = this.state.navItems[navItemIdx].to !== '/signin';
                     return state;
                 });
             else
@@ -95,6 +100,8 @@ class App extends React.Component{
                     state.navItems[state.curNavItemIdx].active = false;
                     state.curLocationPath = newPath;
                     state.sidebarActive = false;
+                    state.showHeader = false;
+                    state.showSidebar = false;
                     return state;
                 });
         }
@@ -110,9 +117,11 @@ class App extends React.Component{
                 <Provider store={defaultStore}>
                     <div id="App">
                         <Header
+                            showHeader={this.state.showHeader}
                             showHideSidebar={this.showHideSidebar}
                         />
                         <Sidebar
+                            showSidebar={this.state.showSidebar}
                             hideSidebar = {this.hideSidebar}
                             sidebarActive={this.state.sidebarActive}
                             navItems={this.state.navItems}

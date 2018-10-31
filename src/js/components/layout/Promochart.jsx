@@ -8,18 +8,13 @@ export default class Promochart extends React.Component{
 
     componentDidMount(){
         let script = document.createElement("script");
-
         script.src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js";
         script.async = false;
-
-        document.body.appendChild(script);
-
+        document.getElementById('promochart_scripts').appendChild(script);
         script = document.createElement("script");
-
         script.src = "/js/mychart.js";
         script.async = false;
-
-        document.body.appendChild(script);
+        document.getElementById('promochart_scripts').appendChild(script);
     }
 
     render(){
@@ -190,6 +185,7 @@ export default class Promochart extends React.Component{
                         </tbody>
                     </table>
                 </div>
+                <div id="promochart_scripts"></div>
             </main>
         )
     }

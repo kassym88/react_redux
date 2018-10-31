@@ -6,7 +6,7 @@ export default function configureStore(reducer, initialState) {
 
     if (module.hot) {
         // console.log("in module.hot");
-        console.log(reducer);
+        // console.log(reducer);
         module.hot.accept( () => {
             // const nextRootReducer = require('./reducer/index').default;
             const nextRootReducer = reducer;//HZ

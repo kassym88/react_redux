@@ -15,7 +15,7 @@ class Layout extends React.Component{
 
     render(){
         return (
-            <div id="layout" className="layout" onClick={this.props.hideSidebar}>
+            <div id="Layout" className="layout" onClick={this.props.hideSidebar}>
                 <Switch>
                     {[
                         ...this.props.navItems.map((e, i) => <Route key={i} exact path={e.to} component={e.component}/>),
