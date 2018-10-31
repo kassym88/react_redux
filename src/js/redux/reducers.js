@@ -5,7 +5,7 @@ export const stateDefault = {
     sidebarActive2: false
 };
 export const reducer = (state = stateDefault, action) => {
-    console.info(action);
+    // console.info(action);
     // console.info(state);
     switch (action.type) {
         case 'INCREMENT':

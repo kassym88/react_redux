@@ -1,9 +1,7 @@
 import React from 'react';
 import {MdDehaze} from 'react-icons/md';
-import connect from "react-redux/es/connect/connect";
-import {mapStateToProps} from "../redux/reducers";
 
-class Header extends React.Component{
+export default class Header extends React.Component{
     constructor(props){
         super(props);
     }
@@ -31,5 +29,3 @@ class Header extends React.Component{
             );
     }
 }
-
-export default connect(mapStateToProps)(Header);//binding component to store

@@ -1,10 +1,8 @@
 import React from 'react';
-import connect from "react-redux/es/connect/connect";
-import {mapStateToProps} from "../redux/reducers";
 import Navitem from './Navitem';
 import '../../css/Sidebar.css';
 
-class Sidebar extends React.Component{
+export default class Sidebar extends React.Component{
     constructor(props){
         super(props);
     }
@@ -36,4 +34,3 @@ class Sidebar extends React.Component{
             );
     }
 }
-export default connect(mapStateToProps)(Sidebar);//binding component to store

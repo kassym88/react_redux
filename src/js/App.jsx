@@ -19,13 +19,6 @@ import Promochart from './components/layout/Promochart';
 import Counter from './components/layout/Counter';
 import Signin from './components/layout/Signin';
 
-// import {createStore} from 'redux';
-// import {reducerCounter, stateDefaultCounter} from './reducers';
-// import configureStore from './configureStore';
-
-// const store = createStore(reducerCounter);
-// const store = configureStore(reducerCounter, stateDefaultCounter);
-
 class App extends React.Component{
     constructor(props){
         super(props);
