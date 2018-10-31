@@ -2,7 +2,12 @@ import {createStore} from 'redux';
 
 export const stateDefault = {
     count: 20,
-    sidebarActive2: false
+    sidebarActive2: false,
+    showHeader: true,
+    showSidebar: true,
+    sidebarActive: false,
+    curLocationPath: '',
+    curNavItemIdx: 0
 };
 export const reducer = (state = stateDefault, action) => {
     // console.info(action);
