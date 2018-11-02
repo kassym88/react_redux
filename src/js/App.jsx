@@ -9,16 +9,18 @@ import {
 import { HashRouter} from "react-router-dom";
 import {Provider} from 'react-redux';
 import {defaultStore} from './redux/reducers';
-//Main components
+//Components
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Layout from './components/Layout';
+import Dummy from './components/Dummy';
 import '../css/App.css';
 //Layouts
 import Home from './components/layout/Home';
 import Promochart from './components/layout/Promochart';
 import Counter from './components/layout/Counter';
 import Signin from './components/layout/Signin';
+import Navitem from "./components/Navitem";
 
 class App extends React.Component{
     constructor(props){
@@ -118,8 +120,19 @@ class App extends React.Component{
                             showSidebar={this.state.showSidebar}
                             hideSidebar = {this.hideSidebar}
                             sidebarActive={this.state.sidebarActive}
-                            navItems={this.state.navItems}
-                        />
+                            // navItems={this.state.navItems}
+                        >
+                            {this.state.navItems.map((e, i) =>
+                                <Navitem
+                                    key={i}
+                                    to={e.to}
+                                    activeNavItem={e.active}
+                                    label={e.label}
+                                    icon={e.icon}
+                                    hideSidebar={this.hideSidebar}
+                                />
+                            )}
+                        </Sidebar>
                         <Layout
                             hideSidebar = {this.hideSidebar}
                             setLocationCurPath = {this.setLocationCurPath}

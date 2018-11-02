@@ -3,9 +3,9 @@ import Navitem from './Navitem';
 import '../../css/Sidebar.css';
 
 export default class Sidebar extends React.Component{
-    constructor(props){
-        super(props);
-    }
+    // constructor(props){
+    //     super(props);
+    // }
 
     render(){
         if(!this.props.showSidebar)
@@ -17,7 +17,7 @@ export default class Sidebar extends React.Component{
                     <nav className={this.props.sidebarActive?'sidebar active':'sidebar'}>
                         <div className="sidebar-sticky">
                             <ul className="nav flex-column">
-                                {this.props.navItems.map((e, i) =>
+                                {/*{this.props.navItems.map((e, i) =>
                                     <Navitem
                                         key={i}
                                         to={e.to}
@@ -26,7 +26,8 @@ export default class Sidebar extends React.Component{
                                         icon={e.icon}
                                         hideSidebar={this.props.hideSidebar}
                                     />
-                                )}
+                                )}*/}
+                                {this.props.children}
                             </ul>
                         </div>
                     </nav>
