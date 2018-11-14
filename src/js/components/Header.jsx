@@ -1,5 +1,6 @@
 import React from 'react';
 import {MdDehaze} from 'react-icons/md';
+import '../../css/Header.css'
 
 export default class Header extends React.Component{
     constructor(props){

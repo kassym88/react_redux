@@ -9,12 +9,12 @@ import {
 import { HashRouter} from "react-router-dom";
 import {Provider} from 'react-redux';
 import {defaultStore} from './redux/reducers';
+import '../css/App.css';
 //Components
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Layout from './components/Layout';
 import Dummy from './components/Dummy';
-import '../css/App.css';
 //Layouts
 import Home from './components/layout/Home';
 import Promochart from './components/layout/Promochart';

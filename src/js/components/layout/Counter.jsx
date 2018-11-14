@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {mapStateToProps} from '../../redux/reducers';
+import Service from '../../services/service';
 
 class Counter extends React.Component {
     // constructor(props){
@@ -37,6 +38,7 @@ class Counter extends React.Component {
     pushMe = () => {
         console.log('input val1', this.state.val1);
         console.log('input val2', this.val2.current.value);
+        console.log('service method', Service.method123());
     };
 
     render() {
